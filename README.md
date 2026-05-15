@@ -1,50 +1,81 @@
-# Welcome to your Expo app 👋
+# 💰 Expense Tracker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform mobile app where you just scan a receipt and the app automatically reads the total amount — no manual entry needed.
 
-## Get started
+---
 
-1. Install dependencies
+## ✨ Features
 
-   ```bash
-   npm install
-   ```
+- 📷 Scan any bill or receipt — OCR reads the total amount automatically
+- 🔐 Secure login and signup with Firebase Authentication
+- ☁️ Real-time cloud sync via Firestore — data available across devices
+- 📊 Monthly spending charts — pie chart + bar chart, category-wise breakdown
+- 💸 Budget tracker with live progress bar — turns red near the limit
+- 🗑️ Add, view and delete expenses anytime
+- 🌙 Clean minimal UI with smooth navigation
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tech Stack
 
-In the output, you'll find options to open the app in a
+| Layer               | Technology                                |
+| ------------------- | ----------------------------------------- |
+| Mobile Framework    | React Native (Expo)                       |
+| Navigation          | Expo Router + React Navigation            |
+| Authentication      | Firebase Auth (Email/Password)            |
+| Database            | Cloud Firestore (NoSQL, Real-time)        |
+| OCR Engine          | OCR Space API                             |
+| Charts              | react-native-chart-kit + react-native-svg |
+| State Management    | React Hooks (useState, useEffect)         |
+| Session Persistence | AsyncStorage                              |
+| Version Control     | Git + GitHub                              |
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## ⚙️ How It Works
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+User scans a receipt with camera
+         ↓
+Image sent to OCR Space API
+         ↓
+API extracts text from the bill
+         ↓
+App finds the total amount using pattern matching
+         ↓
+Expense saved to Firestore with category + date
+         ↓
+Home screen and charts update in real-time
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 💡 Design Decisions
 
-To learn more about developing your project with Expo, look at the following resources:
+- Used **OCR Space API** because it's free, reliable, and works well with mobile image formats
+- Used **Firebase Firestore** for real-time updates — no manual refresh needed anywhere in the app
+- Used **Expo Router** for file-based navigation — cleaner folder structure and easier to scale
+- **Pattern matching on OCR output** looks for keywords like "Total Payable", "Grand Total", "PAID" before falling back to the largest number — makes amount detection more accurate
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 🔮 Future Improvements
 
-Join our community of developers creating universal apps.
+- [ ] UPI SMS auto-detection for instant expense logging
+- [ ] AI-based spending insights and suggestions
+- [ ] Multi-currency support
+- [ ] Export expenses as PDF or Excel
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 📱 Screenshots
+
+| Home Screen | Add Expense | Charts      |
+| ----------- | ----------- | ----------- |
+| coming soon | coming soon | coming soon |
+
+---
+
+## 👨‍💻 Author
+
+Rishanshu Tripathi — B.Tech CSE Student
